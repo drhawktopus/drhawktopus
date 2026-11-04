@@ -10,8 +10,9 @@ The full write-ups — architecture, evaluation methodology, reliability investi
 
 Most of the lab's code stays private: it carries my hosts, my users, and my configuration. What I open up are the pieces worth reproducing on your own hardware.
 
+- **[home-ai](https://github.com/drhawktopus/home-ai)** — *Home AI without breaking the bank*: the whole lab as one local assistant across everyday PCs, cast-off gear and eleven tablets, with every result measured, including what didn't work. Also on [the blog](https://blog.hawktopus.org/home-ai).
 - **[flux2-32b-qlora-rocm-windows](https://github.com/drhawktopus/flux2-32b-qlora-rocm-windows)** — a working recipe, config, and patches for training a 32B FLUX.2 [dev] QLoRA on a single 24 GB AMD RX 7900 XTX, native ROCm on Windows. A hardware, OS, and framework combination with no published recipe I could find at that model size.
-- **Upstream driver report — [ROCm/TheRock #6824](https://github.com/ROCm/TheRock/issues/6824)** — I root-caused a silent GPU compute stall to a queue-arbitration collision in the on-GPU firmware scheduler (AMD's MES), after every Windows-side health check reported the card as normal, and filed the repro, probe data, and mitigation upstream.
+- **Upstream driver report — [ROCm/TheRock #6824](https://github.com/ROCm/TheRock/issues/6824)** — I investigated a silent GPU compute stall that every Windows-side health check reported as normal, narrowed it to its best-supported explanation, a queue-arbitration collision in the on-GPU firmware scheduler (AMD's MES), and filed the repro, probe data, and mitigation upstream. It isn't a closed case.
 - **[fellowship-gauntlet-results](https://github.com/drhawktopus/fellowship-gauntlet-results)** — the full result matrix from a 688-cell model-by-hardware evaluation across an 11-node ARM cluster: every cell's outcome, per-model and per-lane scores, reliability, and timings. The methodology is [written up here](https://portfolio.hawktopus.org/gauntlet).
 
 More of the work is written up on the [portfolio](https://portfolio.hawktopus.org) than is open-sourced here — the systems that carry my hosts and users stay private.
